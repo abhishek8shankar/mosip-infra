@@ -1,30 +1,20 @@
-# Minio Client Utility
+# Identity Cache Cleanup Automation
 
 ## Context
-* This utility helps to clear objects from S3 buckets.
-* The utility is expected to clear objects that are older than specified no of retention days.
+*This utility automates the periodic clearing of the identity_cache table from the mosip_ida PostgreSQL database.
+*The cleanup is scheduled via a Kubernetes CronJob and implemented using a Bash script.
+*Helps maintain database performance by removing stale cached identity data.
 
 ## Prerequisites
-* S3 accessible using the Server URL.
-* ACCESS and SECRET Keys having delete role for the targeted bucket in S3.
-* Docker installed in respective server from where the tool will be executed.
+*PostgreSQL database accessible from the Kubernetes cluster.
+*DB credentials with privileges to TRUNCATE the identity_cache table.
 
 ## Install
-```sh
 ./install.sh
-```
-#### Run minio-client-util manually via Rancher UI
-* Select the minio-client-util cronjob and click the 'Run Now' option
-![mc-1.png](images/mc-1.png)
 
-#### Run minio-client-util manually via CLI
-* Download Kubernetes cluster `kubeconfig` file from `rancher dashboard` to your local.
-* Install `kubectl` package to your local machine.
-* Run minio-client-util manually via CLI by creating a new job from an existing k8s cronjob.
-  ```
-  kubectl --kubeconfig=<k8s-config-file> -n minio-client-util create job --from=cronjob/<cronjob-name> <job-name>
-  ```
-  Example:
-  ```
-  kubectl --kubeconfig=/home/xxx/Downloads/dev.config -n minio-client-util create job --from=cronjob/cronjob-minio-client-util cronjob-minio-client-util
-  ```
+## During execution, the script will prompt for database connection details. Example session:
+
+Enter DB Host: your-db-host
+Enter DB Port [default 5432]: your-db-port
+Using DB Username: postgres
+Enter DB Password for user postgres: your-postgres-password
