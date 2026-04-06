@@ -10,7 +10,7 @@
 * DB credentials with privileges to TRUNCATE the identity_cache table.
 
 ## Install
-./install.sh
+```./install.sh```
 
 ## During execution, the script will prompt for database connection details. Example session:
 
