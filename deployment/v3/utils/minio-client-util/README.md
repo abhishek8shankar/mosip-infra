@@ -1,13 +1,13 @@
 # Identity Cache Cleanup Automation
 
 ## Context
-*This utility automates the periodic clearing of the identity_cache table from the mosip_ida PostgreSQL database.
-*The cleanup is scheduled via a Kubernetes CronJob and implemented using a Bash script.
-*Helps maintain database performance by removing stale cached identity data.
+* This utility automates the periodic clearing of the identity_cache table from the mosip_ida PostgreSQL database.
+* The cleanup is scheduled via a Kubernetes CronJob and implemented using a Bash script.
+* Helps maintain database performance by removing stale cached identity data.
 
 ## Prerequisites
-*PostgreSQL database accessible from the Kubernetes cluster.
-*DB credentials with privileges to TRUNCATE the identity_cache table.
+* PostgreSQL database accessible from the Kubernetes cluster.
+* DB credentials with privileges to TRUNCATE the identity_cache table.
 
 ## Install
 ./install.sh
