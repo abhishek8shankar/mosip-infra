@@ -14,7 +14,7 @@
 
 ## During execution, the script will prompt for database connection details. Example session:
 
-Enter DB Host: your-db-host
-Enter DB Port [default 5432]: your-db-port
-Using DB Username: postgres
-Enter DB Password for user postgres: your-postgres-password
+* Enter DB Host: your-db-host
+* Enter DB Port [default 5432]: your-db-port
+* Using DB Username: postgres
+* Enter DB Password for user postgres: your-postgres-password
